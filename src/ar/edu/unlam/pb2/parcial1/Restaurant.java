@@ -59,21 +59,20 @@ public class Restaurant {
 		return sePudoAgregar;
 	}
 
-	public Boolean reservarUnaMesa(int nroDeMesa) {
+	public Boolean reservarUnaMesa(int nroDeMesa, int cantidadDeComensales) {
 		Boolean sePudoReservar = false;
-		//buscar por nro de mesa
+		// buscar por nro de mesa
 		for (int i = 0; i < mesas.length; i++) {
-			if(mesas[i] != null && mesas[i].getNumero() == nroDeMesa) {
+			if (mesas[i] != null && mesas[i].getNumero() == nroDeMesa && mesas[i].getDisponible()
+					&& mesas[i].getCapacidad() >= cantidadDeComensales) {
 				sePudoReservar = true;
-				//Poner la mesa como NO disponible
+				// Poner la mesa como NO disponible
 				mesas[i].setDisponible(false);
 				break;
 			}
 		}
 		return sePudoReservar;
-		
-	}
 
-	
+	}
 
 }

@@ -32,21 +32,69 @@ public class RestaurantTest {
 		assertNotNull(restaurant);
 
 	}
-	
-	
+
 	@Test
-	public void queSePuedaReservarUnaMesa() {
+	public void queSePuedaAgregarUnaMesaAlRestaurant() {
 		Mesa[] mesas = new Mesa[10];
 		Mozo[] mozos = new Mozo[10];
 		Pedido[] pedidos = new Pedido[50];
 
 		Mesa mesa = new Mesa(01, 6, Boolean.TRUE);
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant", mozos, mesas, pedidos);
+		Boolean valorObtenido = restaurant.agregarUnaMesa(mesa);
+
+		assertTrue(valorObtenido);
+	}
+
+	@Test
+	public void queSePuedaReservarUnaMesa() {
+		Mesa[] mesas = new Mesa[10];
+		Mozo[] mozos = new Mozo[10];
+		Pedido[] pedidos = new Pedido[50];
+		Mesa mesa = new Mesa(01, 6, Boolean.TRUE);
 		Mesa mesa2 = new Mesa(02, 4, Boolean.TRUE);
 		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant", mozos, mesas, pedidos);
+
 		restaurant.agregarUnaMesa(mesa);
 		restaurant.agregarUnaMesa(mesa2);
-		restaurant.reservarUnaMesa(01);
 
+		Boolean valorObtenido = restaurant.reservarUnaMesa(01, 5);
+
+		assertTrue(valorObtenido);
+	}
+
+	@Test
+	public void queNoSePuedaReservarUnaMesaOcupada() {
+		Mesa[] mesas = new Mesa[10];
+		Mozo[] mozos = new Mozo[10];
+		Pedido[] pedidos = new Pedido[50];
+		Mesa mesa = new Mesa(01, 6, Boolean.TRUE);
+		Mesa mesa2 = new Mesa(02, 4, Boolean.TRUE);
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant", mozos, mesas, pedidos);
+
+		restaurant.agregarUnaMesa(mesa);
+		restaurant.agregarUnaMesa(mesa2);
+		restaurant.reservarUnaMesa(01, 4);
+
+		Boolean valorObtenido = restaurant.reservarUnaMesa(01, 5);
+
+		assertFalse(valorObtenido);
+	}
+	
+	@Test
+	public void queNoSePuedaReservarUnaMesaSiHayMasComensalesQueElLimite() {
+		Mesa[] mesas = new Mesa[10];
+		Mozo[] mozos = new Mozo[10];
+		Pedido[] pedidos = new Pedido[50];
+		Mesa mesa = new Mesa(01, 6, Boolean.TRUE);
+		Mesa mesa2 = new Mesa(02, 4, Boolean.TRUE);
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant", mozos, mesas, pedidos);
+
+		restaurant.agregarUnaMesa(mesa);
+		restaurant.agregarUnaMesa(mesa2);
+		Boolean valorObtenido = restaurant.reservarUnaMesa(01, 7);
+		
+		assertFalse(valorObtenido);
 	}
 
 }
