@@ -1,6 +1,6 @@
 package ar.edu.unlam.pb2.parcial1;
 
-public class Persona {
+public abstract class Persona {
 	
 	private Long documento;
 	private String nombre;

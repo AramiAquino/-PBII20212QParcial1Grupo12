@@ -46,4 +46,34 @@ public class Restaurant {
 		this.pedidos = pedidos;
 	}
 
+	public Boolean agregarUnaMesa(Mesa mesa) {
+		Boolean sePudoAgregar = false;
+
+		for (int i = 0; i < mesas.length; i++) {
+			if (mesas[i] == null) {
+				mesas[i] = mesa;
+				sePudoAgregar = true;
+				break;
+			}
+		}
+		return sePudoAgregar;
+	}
+
+	public Boolean reservarUnaMesa(int nroDeMesa) {
+		Boolean sePudoReservar = false;
+		//buscar por nro de mesa
+		for (int i = 0; i < mesas.length; i++) {
+			if(mesas[i] != null && mesas[i].getNumero() == nroDeMesa) {
+				sePudoReservar = true;
+				//Poner la mesa como NO disponible
+				mesas[i].setDisponible(false);
+				break;
+			}
+		}
+		return sePudoReservar;
+		
+	}
+
+	
+
 }
