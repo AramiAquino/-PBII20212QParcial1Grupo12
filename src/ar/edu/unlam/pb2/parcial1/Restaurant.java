@@ -6,12 +6,17 @@ public class Restaurant {
 	private Mozo[] mozos;
 	private Mesa[] mesas;
 	private Pedido[] pedidos;
+	private Comida[] menuComidas;
+	private Bebida[] menuBebidas;
 
-	public Restaurant(String nombre, Mozo[] mozos, Mesa[] mesas, Pedido[] pedidos) {
+	public Restaurant(String nombre, Mozo[] mozos, Mesa[] mesas, Pedido[] pedidos, Comida[] menuComidas,
+			Bebida[] menuBebidas) {
 		this.nombre = nombre;
 		this.mozos = mozos;
 		this.mesas = mesas;
 		this.pedidos = pedidos;
+		this.menuComidas = menuComidas;
+		this.menuBebidas = menuBebidas;
 	}
 
 	public String getNombre() {
@@ -46,6 +51,22 @@ public class Restaurant {
 		this.pedidos = pedidos;
 	}
 
+	public Comida[] getMenuComidas() {
+		return menuComidas;
+	}
+
+	public void setMenuComidas(Comida[] menuComidas) {
+		this.menuComidas = menuComidas;
+	}
+
+	public Bebida[] getMenuBebidas() {
+		return menuBebidas;
+	}
+
+	public void setMenuBebidas(Bebida[] menuBebidas) {
+		this.menuBebidas = menuBebidas;
+	}
+
 	public Boolean agregarUnaMesa(Mesa mesa) {
 		Boolean sePudoAgregar = false;
 
@@ -73,6 +94,30 @@ public class Restaurant {
 		}
 		return sePudoReservar;
 
+	}
+
+	public Boolean agregarUnaComidaAlMenu(Comida comida) {
+		Boolean sePudoAgregar = false;
+		for (int i = 0; i < menuComidas.length; i++) {
+			if (menuComidas[i] == null) {
+				menuComidas[i] = comida;
+				sePudoAgregar = true;
+				break;
+			}
+		}
+		return sePudoAgregar;
+	}
+
+	public Boolean agregarUnaBebidaAlMenu(Bebida bebida) {
+		Boolean sePudoAgregar = false;
+		for (int i = 0; i < menuBebidas.length; i++) {
+			if (menuBebidas[i] == null) {
+				menuBebidas[i] = bebida;
+				sePudoAgregar = true;
+				break;
+			}
+		}
+		return sePudoAgregar;
 	}
 
 }
