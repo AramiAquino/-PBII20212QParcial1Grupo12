@@ -6,9 +6,9 @@ public class Mozo extends Persona {
 	private Integer cantidadPedidos;
 
 	public Mozo(String nombre, Long documento, Integer legajo, Integer cantidadPedidos) {
-		super(nombre,documento);
-		this.setLegajo(legajo);
-		this.setCantidadPedidos(cantidadPedidos);
+		super(nombre, documento);
+		this.legajo = legajo;
+		this.cantidadPedidos = cantidadPedidos;
 	}
 
 	public Integer getLegajo() {
@@ -26,7 +26,5 @@ public class Mozo extends Persona {
 	public void setCantidadPedidos(Integer cantidadPedidos) {
 		this.cantidadPedidos = cantidadPedidos;
 	}
-
-
 
 }

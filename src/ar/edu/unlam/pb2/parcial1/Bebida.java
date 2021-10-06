@@ -6,8 +6,8 @@ public class Bebida {
 	private String descripcion;
 
 	public Bebida(String descripcion, Double precio) {
-		this.setDescripcion(descripcion);
-		this.setPrecio(precio);
+		this.descripcion = descripcion;
+		this.precio = precio;
 	}
 
 	public Double getPrecio() {

@@ -8,10 +8,10 @@ public class Restaurant {
 	private Pedido[] pedidos;
 
 	public Restaurant(String nombre, Mozo[] mozos, Mesa[] mesas, Pedido[] pedidos) {
-		this.setNombre(nombre);
-		this.setMozos(mozos);
-		this.setMesas(mesas);
-		this.setPedidos(pedidos);
+		this.nombre = nombre;
+		this.mozos = mozos;
+		this.mesas = mesas;
+		this.pedidos = pedidos;
 	}
 
 	public String getNombre() {

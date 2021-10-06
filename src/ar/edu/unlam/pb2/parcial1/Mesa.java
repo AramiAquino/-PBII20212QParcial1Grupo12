@@ -2,16 +2,14 @@ package ar.edu.unlam.pb2.parcial1;
 
 public class Mesa {
 
-	
 	private Integer numero;
 	private Integer capacidad;
 	private Boolean disponible;
 
-	public Mesa(int numero, int capacidad, Boolean disponible ) {
-		this.setNumero(numero);
-		this.setCapacidad(capacidad);
-		this.setDisponible(disponible);
-		
+	public Mesa(int numero, int capacidad, Boolean disponible) {
+		this.numero = numero;
+		this.capacidad = capacidad;
+		this.disponible = disponible;
 	}
 
 	public Integer getNumero() {

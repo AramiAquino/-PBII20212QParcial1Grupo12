@@ -8,11 +8,11 @@ public class Pedido {
 	private Mesa mesa;
 
 	public Pedido(Comida[] comidasAPedir, Bebida[] bebidasAPedir, Mozo mozo, Mesa mesa) {
-		this.setComidasAPedir(comidasAPedir);
-		this.setBebidasAPedir(bebidasAPedir);
-		this.setMozo(mozo);
-		this.setMesa(mesa);
-		
+		this.comidasAPedir = comidasAPedir;
+		this.bebidasAPedir = bebidasAPedir;
+		this.mozo = mozo;
+		this.mesa = mesa;
+
 	}
 
 	public Comida[] getComidasAPedir() {
