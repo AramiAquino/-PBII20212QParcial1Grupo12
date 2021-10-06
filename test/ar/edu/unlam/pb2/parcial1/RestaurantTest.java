@@ -114,7 +114,7 @@ public class RestaurantTest {
 	}
 
 	@Test
-	public void queSePuedaAgregarUnaComidaAlRestaurant() {
+	public void queSePuedaAgregarUnaComidaAlMenu() {
 		Mesa[] mesas = new Mesa[10];
 		Mozo[] mozos = new Mozo[10];
 		Pedido[] pedidos = new Pedido[50];
@@ -131,7 +131,7 @@ public class RestaurantTest {
 	}
 	
 	@Test
-	public void queSePuedaAgregarUnaBebidaAlRestaurant() {
+	public void queSePuedaAgregarUnaBebidaAlMenu() {
 		Mesa[] mesas = new Mesa[10];
 		Mozo[] mozos = new Mozo[10];
 		Pedido[] pedidos = new Pedido[50];
@@ -141,7 +141,6 @@ public class RestaurantTest {
 				bebidas);
 		Bebida bebida = new Bebida("Agua", 100.0);
 
-		
 		Boolean valorObtenido = restaurant.agregarUnaBebidaAlMenu(bebida);
 
 		assertTrue(valorObtenido);
