@@ -9,20 +9,16 @@ public class RestaurantTest {
 	@Test
 	public void queSePuedanCrearLasClases() {
 
-		Mesa[] mesas = new Mesa[10];
-		Mozo[] mozos = new Mozo[10];
 		Comida[] comidas = new Comida[10];
 		Bebida[] bebidas = new Bebida[5];
-		Pedido[] pedidos = new Pedido[50];
 
-		Mesa mesa = new Mesa(01, 6, Boolean.TRUE);
+		Mesa mesa = new Mesa(01, 6);
 		Comida comida = new Comida("Pizza", 800.0);
 		Bebida bebida = new Bebida("Cerveza", 350.0);
 		Mozo mozo = new Mozo("Juan", 123456l, 123, 2);
 		Comensal comensal = new Comensal("Maria", 7894561l, mesa);
 		Pedido pedido = new Pedido(comidas, bebidas, mozo, mesa);
-		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant", mozos, mesas, pedidos, comidas,
-				bebidas);
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
 
 		assertNotNull(mesa);
 		assertNotNull(comida);
@@ -36,15 +32,9 @@ public class RestaurantTest {
 
 	@Test
 	public void queSePuedaAgregarUnaMesaAlRestaurant() {
-		Mesa[] mesas = new Mesa[10];
-		Mozo[] mozos = new Mozo[10];
-		Pedido[] pedidos = new Pedido[50];
-		Comida[] comidas = new Comida[10];
-		Bebida[] bebidas = new Bebida[5];
 
-		Mesa mesa = new Mesa(01, 6, Boolean.TRUE);
-		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant", mozos, mesas, pedidos, comidas,
-				bebidas);
+		Mesa mesa = new Mesa(01, 6);
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
 		Boolean valorObtenido = restaurant.agregarUnaMesa(mesa);
 
 		assertTrue(valorObtenido);
@@ -52,16 +42,10 @@ public class RestaurantTest {
 
 	@Test
 	public void queSePuedaReservarUnaMesa() {
-		Mesa[] mesas = new Mesa[10];
-		Mozo[] mozos = new Mozo[10];
-		Pedido[] pedidos = new Pedido[50];
-		Comida[] comidas = new Comida[10];
-		Bebida[] bebidas = new Bebida[5];
 
-		Mesa mesa = new Mesa(01, 6, Boolean.TRUE);
-		Mesa mesa2 = new Mesa(02, 4, Boolean.TRUE);
-		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant", mozos, mesas, pedidos, comidas,
-				bebidas);
+		Mesa mesa = new Mesa(01, 6);
+		Mesa mesa2 = new Mesa(02, 4);
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
 
 		restaurant.agregarUnaMesa(mesa);
 		restaurant.agregarUnaMesa(mesa2);
@@ -73,16 +57,10 @@ public class RestaurantTest {
 
 	@Test
 	public void queNoSePuedaReservarUnaMesaOcupada() {
-		Mesa[] mesas = new Mesa[10];
-		Mozo[] mozos = new Mozo[10];
-		Pedido[] pedidos = new Pedido[50];
-		Comida[] comidas = new Comida[10];
-		Bebida[] bebidas = new Bebida[5];
 
-		Mesa mesa = new Mesa(01, 6, Boolean.TRUE);
-		Mesa mesa2 = new Mesa(02, 4, Boolean.TRUE);
-		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant", mozos, mesas, pedidos, comidas,
-				bebidas);
+		Mesa mesa = new Mesa(01, 6);
+		Mesa mesa2 = new Mesa(02, 4);
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
 
 		restaurant.agregarUnaMesa(mesa);
 		restaurant.agregarUnaMesa(mesa2);
@@ -95,16 +73,10 @@ public class RestaurantTest {
 
 	@Test
 	public void queNoSePuedaReservarUnaMesaSiHayMasComensalesQueElLimite() {
-		Mesa[] mesas = new Mesa[10];
-		Mozo[] mozos = new Mozo[10];
-		Pedido[] pedidos = new Pedido[50];
-		Comida[] comidas = new Comida[10];
-		Bebida[] bebidas = new Bebida[5];
 
-		Mesa mesa = new Mesa(01, 6, Boolean.TRUE);
-		Mesa mesa2 = new Mesa(02, 4, Boolean.TRUE);
-		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant", mozos, mesas, pedidos, comidas,
-				bebidas);
+		Mesa mesa = new Mesa(01, 6);
+		Mesa mesa2 = new Mesa(02, 4);
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
 
 		restaurant.agregarUnaMesa(mesa);
 		restaurant.agregarUnaMesa(mesa2);
@@ -115,13 +87,7 @@ public class RestaurantTest {
 
 	@Test
 	public void queSePuedaAgregarUnaComidaAlMenu() {
-		Mesa[] mesas = new Mesa[10];
-		Mozo[] mozos = new Mozo[10];
-		Pedido[] pedidos = new Pedido[50];
-		Comida[] comidas = new Comida[10];
-		Bebida[] bebidas = new Bebida[5];
-		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant", mozos, mesas, pedidos, comidas,
-				bebidas);
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
 		Comida comida = new Comida("Milanesa", 150.0);
 
 		
@@ -132,13 +98,7 @@ public class RestaurantTest {
 	
 	@Test
 	public void queSePuedaAgregarUnaBebidaAlMenu() {
-		Mesa[] mesas = new Mesa[10];
-		Mozo[] mozos = new Mozo[10];
-		Pedido[] pedidos = new Pedido[50];
-		Comida[] comidas = new Comida[10];
-		Bebida[] bebidas = new Bebida[5];
-		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant", mozos, mesas, pedidos, comidas,
-				bebidas);
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
 		Bebida bebida = new Bebida("Agua", 100.0);
 
 		Boolean valorObtenido = restaurant.agregarUnaBebidaAlMenu(bebida);

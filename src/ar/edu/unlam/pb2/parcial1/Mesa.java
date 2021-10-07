@@ -6,10 +6,10 @@ public class Mesa {
 	private Integer capacidad;
 	private Boolean disponible;
 
-	public Mesa(int numero, int capacidad, Boolean disponible) {
+	public Mesa(int numero, int capacidad) {
 		this.numero = numero;
 		this.capacidad = capacidad;
-		this.disponible = disponible;
+		this.disponible = Boolean.TRUE;
 	}
 
 	public Integer getNumero() {

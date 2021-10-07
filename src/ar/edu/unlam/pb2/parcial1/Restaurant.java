@@ -9,14 +9,13 @@ public class Restaurant {
 	private Comida[] menuComidas;
 	private Bebida[] menuBebidas;
 
-	public Restaurant(String nombre, Mozo[] mozos, Mesa[] mesas, Pedido[] pedidos, Comida[] menuComidas,
-			Bebida[] menuBebidas) {
+	public Restaurant(String nombre) {
 		this.nombre = nombre;
-		this.mozos = mozos;
-		this.mesas = mesas;
-		this.pedidos = pedidos;
-		this.menuComidas = menuComidas;
-		this.menuBebidas = menuBebidas;
+		this.mozos = new Mozo[100];
+		this.mesas = new Mesa[1000];
+		this.pedidos = new Pedido[10000];
+		this.menuComidas = new Comida[100];
+		this.menuBebidas = new Bebida[100];
 	}
 
 	public String getNombre() {
@@ -119,5 +118,6 @@ public class Restaurant {
 		}
 		return sePudoAgregar;
 	}
+	
 
 }

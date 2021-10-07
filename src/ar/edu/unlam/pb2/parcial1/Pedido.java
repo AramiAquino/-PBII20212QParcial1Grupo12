@@ -15,6 +15,7 @@ public class Pedido {
 
 	}
 
+
 	public Comida[] getComidasAPedir() {
 		return comidasAPedir;
 	}
