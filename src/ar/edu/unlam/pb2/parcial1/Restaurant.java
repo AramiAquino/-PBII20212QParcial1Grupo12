@@ -8,6 +8,7 @@ public class Restaurant {
 	private Pedido[] pedidos;
 	private Comida[] menuComidas;
 	private Bebida[] menuBebidas;
+	private Double totalDeuda;
 
 	public Restaurant(String nombre) {
 		this.nombre = nombre;
@@ -119,4 +120,10 @@ public class Restaurant {
 		return sePudoAgregar;
 	}
 
+	public Double calcularTotalDeuda(Pedido pedido) {
+		for (int i = 0; i < pedidos.length; i++) {
+			totalDeuda = (pedido.getBebida().getPrecio())+(pedido.getComida().getPrecio());
+		}
+		return totalDeuda;
+	}
 }

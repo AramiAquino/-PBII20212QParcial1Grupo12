@@ -17,7 +17,7 @@ public class RestaurantTest {
 		Bebida bebida = new Bebida("Cerveza", 350.0);
 		Mozo mozo = new Mozo("Juan", 123456l, 123, 2);
 		Comensal comensal = new Comensal("Maria", 7894561l, mesa);
-		Pedido pedido = new Pedido(comidas, bebidas, mozo, mesa);
+		Pedido pedido = new Pedido(comida, bebida, mozo, mesa);
 		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
 
 		assertNotNull(mesa);
@@ -112,9 +112,10 @@ public class RestaurantTest {
 		Comida[] comidas = new Comida[10];
 		Bebida[] bebidas = new Bebida[5];
 		Comida comida = new Comida("Comida", 100.0);
+		Bebida bebida = new Bebida("Comida", 100.0);
 		Mozo mozo = new Mozo("Juan", 123456l, 123, 2);
 		Mesa mesa = new Mesa(01, 6);
-		Pedido pedido = new Pedido(comidas, bebidas, mozo, mesa);
+		Pedido pedido = new Pedido(comida, bebida, mozo, mesa);
 
 		Boolean valorObtenido = pedido.agregarComidaAlpedido(comida);
 
@@ -131,7 +132,7 @@ public class RestaurantTest {
 		Bebida bebida = new Bebida("Agua", 100.0);
 		Mozo mozo = new Mozo("Juan", 123456l, 123, 2);
 		Mesa mesa = new Mesa(01, 6);
-		Pedido pedido = new Pedido(comidas, bebidas, mozo, mesa);
+		Pedido pedido = new Pedido(comida, bebida, mozo, mesa);
 
 		Boolean valorObtenido = pedido.agregarBebidaAlpedido(bebida);
 
@@ -143,9 +144,10 @@ public class RestaurantTest {
 		Comida[] comidas = new Comida[10];
 		Bebida[] bebidas = new Bebida[5];
 		Comida comida = new Comida("Comida", 100.0);
+		Bebida bebida = new Bebida("Comida", 100.0);
 		Mozo mozo = new Mozo("Juan", 123456l, 123, 2);
 		Mesa mesa = new Mesa(01, 6);
-		Pedido pedido = new Pedido(comidas, bebidas, mozo, mesa);
+		Pedido pedido = new Pedido(comida, bebida, mozo, mesa);
 		
 		pedido.agregarComidaAlpedido(comida);
 
@@ -158,10 +160,13 @@ public class RestaurantTest {
 	public void queSePuedaEliminarBebidaDelPedido() {
 		Comida[] comidas = new Comida[10];
 		Bebida[] bebidas = new Bebida[5];
+		
+		Comida comida = new Comida("Comida", 100.0);
+		Bebida bebida1 = new Bebida("Comida", 100.0);
 		Bebida bebida = new Bebida("Comida", 100.0);
 		Mozo mozo = new Mozo("Juan", 123456l, 123, 2);
 		Mesa mesa = new Mesa(01, 6);
-		Pedido pedido = new Pedido(comidas, bebidas, mozo, mesa);
+		Pedido pedido = new Pedido(comida, bebida1, mozo, mesa);
 		
 		pedido.agregarBebidaAlpedido(bebida);
 
@@ -169,5 +174,27 @@ public class RestaurantTest {
 
 		assertTrue(valorObtenido);
 	}
+	
+	@Test
+	public void queSePuedaCalcularElValorDeLaDeuda() {
+		Comida[] comidas = new Comida[10];
+		Bebida[] bebidas = new Bebida[5];
+		
+		Comida comida = new Comida("Comida", 100.0);
+		Bebida bebida1 = new Bebida("Comida", 100.0);
+		Mozo mozo = new Mozo("Juan", 123456l, 123, 2);
+		Mesa mesa = new Mesa(01, 6);
+		Pedido pedido = new Pedido(comida, bebida1, mozo, mesa);
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
+		
+		
+
+		Double valorObtenido = restaurant.calcularTotalDeuda(pedido);
+		
+		Double valorEsperado = 200.0;
+
+		assertEquals(valorEsperado, valorObtenido, 0.01);
+	}
+
 
 }

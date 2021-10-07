@@ -2,16 +2,20 @@ package ar.edu.unlam.pb2.parcial1;
 
 public class Pedido {
 
+	private Comida comida;
+	private Bebida bebida;
 	private Comida[] comidasAPedir;
 	private Bebida[] bebidasAPedir;
 	private Mozo mozo;
 	private Mesa mesa;
 
-	public Pedido(Comida[] comidasAPedir, Bebida[] bebidasAPedir, Mozo mozo, Mesa mesa) {
-		this.comidasAPedir = comidasAPedir;
-		this.bebidasAPedir = bebidasAPedir;
+	public Pedido(Comida comidasAPedir, Bebida bebidasAPedir, Mozo mozo, Mesa mesa) {
+		this.comida = comidasAPedir;
+		this.bebida = bebidasAPedir;
 		this.mozo = mozo;
 		this.mesa = mesa;
+		this.comidasAPedir = new Comida[100];
+		this.bebidasAPedir = new Bebida[100];
 
 	}
 
@@ -62,7 +66,24 @@ public class Pedido {
 		}
 		return sePudoEliminar;
 	}
-	
+
+
+	public Comida getComida() {
+		return comida;
+	}
+
+	public void setComida(Comida comida) {
+		this.comida = comida;
+	}
+
+	public Bebida getBebida() {
+		return bebida;
+	}
+
+	public void setBebida(Bebida bebida) {
+		this.bebida = bebida;
+	}
+
 	public Comida[] getComidasAPedir() {
 		return comidasAPedir;
 	}
