@@ -151,7 +151,7 @@ public class RestaurantTest {
 		
 		pedido.agregarComidaAlpedido(comida);
 
-		Boolean valorObtenido = pedido.eliminarUnaComidaDelMenu(comida);
+		Boolean valorObtenido = pedido.eliminarUnaComidaDelPedido(comida);
 
 		assertTrue(valorObtenido);
 	}
