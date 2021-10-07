@@ -137,5 +137,21 @@ public class RestaurantTest {
 
 		assertTrue(valorObtenido);
 	}
+	
+	@Test
+	public void queSePuedaEliminarComidaDelPedido() {
+		Comida[] comidas = new Comida[10];
+		Bebida[] bebidas = new Bebida[5];
+		Comida comida = new Comida("Comida", 100.0);
+		Mozo mozo = new Mozo("Juan", 123456l, 123, 2);
+		Mesa mesa = new Mesa(01, 6);
+		Pedido pedido = new Pedido(comidas, bebidas, mozo, mesa);
+		
+		pedido.agregarComidaAlpedido(comida);
+
+		Boolean valorObtenido = pedido.eliminarUnaComidaDelMenu(comida);
+
+		assertTrue(valorObtenido);
+	}
 
 }

@@ -39,6 +39,18 @@ public class Pedido {
 		return sePudoAgregar;
 	}
 	
+	public Boolean eliminarUnaComidaDelMenu(Comida comida) {
+		Boolean sePudoEliminar = false;
+		for (int i = 0; i < comidasAPedir.length; i++) {
+			if (comidasAPedir[i].getDescripcion().equals(comida.getDescripcion())) {
+				comidasAPedir[i] = null;
+				sePudoEliminar = true;
+				break;
+			}
+		}
+		return sePudoEliminar;
+	}
+	
 	public Comida[] getComidasAPedir() {
 		return comidasAPedir;
 	}
