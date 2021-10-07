@@ -8,6 +8,7 @@ public class Restaurant {
 	private Pedido[] pedidos;
 	private Comida[] menuComidas;
 	private Bebida[] menuBebidas;
+	private Comensal[] comensales;
 	private Double totalDeuda;
 
 	public Restaurant(String nombre) {
@@ -17,6 +18,8 @@ public class Restaurant {
 		this.pedidos = new Pedido[10000];
 		this.menuComidas = new Comida[100];
 		this.menuBebidas = new Bebida[100];
+		this.totalDeuda = 0d;
+		this.comensales = new Comensal[1000];
 	}
 
 	public String getNombre() {
@@ -67,6 +70,19 @@ public class Restaurant {
 		this.menuBebidas = menuBebidas;
 	}
 
+	public Boolean agregarUnMozo(Mozo mozo) {
+		Boolean sePudoAgregar = false;
+
+		for (int i = 0; i < mozos.length; i++) {
+			if (mozos[i] == null) {
+				mozos[i] = mozo;
+				sePudoAgregar = true;
+				break;
+			}
+		}
+		return sePudoAgregar;
+	}
+	
 	public Boolean agregarUnaMesa(Mesa mesa) {
 		Boolean sePudoAgregar = false;
 
@@ -120,10 +136,52 @@ public class Restaurant {
 		return sePudoAgregar;
 	}
 
-	public Double calcularTotalDeuda(Pedido pedido) {
+	public Boolean agregarUnPedidoAPedidos(Pedido pedido) {
+		Boolean sePudoAgregar = false;
 		for (int i = 0; i < pedidos.length; i++) {
-			totalDeuda = (pedido.getBebida().getPrecio())+(pedido.getComida().getPrecio());
+			if (pedidos[i] == null) {
+				pedidos[i] = pedido;
+				sePudoAgregar = true;
+				break;
+			}
+		}
+		return sePudoAgregar;
+	}
+
+	public Double calcularDeudaDeUnaMesa(Integer nroMesa) {
+		Double deuda = 0d;
+		for (int i = 0; i < pedidos.length; i++) {
+			if (pedidos[i] != null && pedidos[i].getMesa().getNumero() == nroMesa) {
+				deuda = pedidos[i].getBebida().getPrecio() + pedidos[i].getComida().getPrecio();
+				break;
+			}
+		}
+		return deuda;
+	}
+
+	public Double calcularTotalDeudaTodasLasMesas() {
+		for (int i = 0; i < pedidos.length; i++) {
+			if (pedidos[i] != null) {
+				this.totalDeuda += pedidos[i].getBebida().getPrecio() + pedidos[i].getComida().getPrecio();
+			}
 		}
 		return totalDeuda;
+	}
+	
+	public Boolean agregarComensalAUnaMesa(Mesa mesa, Comensal comensal) {
+		Boolean sePudoAgregar = false;
+
+		if(mesa.getDisponible() == true) {
+			for (int i = 0; i < comensales.length; i++) {
+				if (comensales[i] == null) {
+					comensales[i] = comensal;
+					sePudoAgregar = true;
+					mesa.setDisponible(false);
+					break;
+				}
+			}
+		}
+		
+		return sePudoAgregar;
 	}
 }
