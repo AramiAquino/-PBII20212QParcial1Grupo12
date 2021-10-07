@@ -16,7 +16,7 @@ public class RestaurantTest {
 		Comida comida = new Comida("Pizza", 800.0);
 		Bebida bebida = new Bebida("Cerveza", 350.0);
 		Mozo mozo = new Mozo("Juan", 123456l, 123, 2);
-		Comensal comensal = new Comensal("Maria", 7894561l, mesa);
+		Comensal comensal = new Comensal("Maria", 7894561l);
 		Pedido pedido = new Pedido(comida, bebida, mozo, mesa);
 		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
 
@@ -224,7 +224,7 @@ public class RestaurantTest {
 		Comensal[] comensales = new Comensal[10];
 		Mesa[] mesas = new Mesa[5];
 		Mesa mesa = new Mesa(01, 6);
-		Comensal comensal = new Comensal("Lucia", 1234567l, mesa);
+		Comensal comensal = new Comensal("Lucia", 1234567l);
 		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
 
 		
@@ -238,7 +238,7 @@ public class RestaurantTest {
 		Comensal[] comensales = new Comensal[10];
 		Mesa[] mesas = new Mesa[5];
 		Mesa mesa = new Mesa(01, 6);
-		Comensal comensal = new Comensal("Lucia", 1234567l, mesa);
+		Comensal comensal = new Comensal("Lucia", 1234567l);
 		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
 
 		restaurant.reservarUnaMesa(01, 6);
@@ -248,4 +248,20 @@ public class RestaurantTest {
 		
 	}
 
+	@Test
+	public void queNoSePuedaAgregarComensalesAUnaMesaOcupada() {
+		Comensal[] comensales = new Comensal[10];
+		Mesa[] mesas = new Mesa[5];
+		Mesa mesa = new Mesa(01, 6);
+		Comensal comensal = new Comensal("Lucia", 1234567l);
+		Comensal comensal2 = new Comensal("Maria", 1287677l);
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
+
+		
+		restaurant.agregarComensalAUnaMesa(mesa, comensal);
+		
+		Boolean valorObtenido = restaurant.agregarComensalAUnaMesa(mesa, comensal2);
+		
+		assertFalse(valorObtenido);
+	}
 }

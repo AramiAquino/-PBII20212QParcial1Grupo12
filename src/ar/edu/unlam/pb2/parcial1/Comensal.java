@@ -4,7 +4,7 @@ public class Comensal extends Persona {
 
 	private Mesa mesa;
 
-	public Comensal(String nombre, Long documento, Mesa mesa) {
+	public Comensal(String nombre, Long documento) {
 		super(nombre, documento);
 		this.mesa = mesa;
 	}
