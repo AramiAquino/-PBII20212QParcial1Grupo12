@@ -51,6 +51,18 @@ public class Pedido {
 		return sePudoEliminar;
 	}
 	
+	public Boolean eliminarUnaBebidaDelPedido(Bebida bebida) {
+		Boolean sePudoEliminar = false;
+		for (int i = 0; i < bebidasAPedir.length; i++) {
+			if (bebidasAPedir[i].getDescripcion().equals(bebida.getDescripcion())) {
+				bebidasAPedir[i] = null;
+				sePudoEliminar = true;
+				break;
+			}
+		}
+		return sePudoEliminar;
+	}
+	
 	public Comida[] getComidasAPedir() {
 		return comidasAPedir;
 	}
