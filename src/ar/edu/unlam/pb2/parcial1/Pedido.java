@@ -26,7 +26,7 @@ public class Pedido {
 		}
 		return sePudoAgregar;
 	}
-/*	
+
 	public Boolean agregarBebidaAlpedido(Bebida bebida) {
 		Boolean sePudoAgregar = false;
 		for (int i = 0; i < bebidasAPedir.length; i++) {
@@ -38,8 +38,8 @@ public class Pedido {
 		}
 		return sePudoAgregar;
 	}
-
-*/	public Comida[] getComidasAPedir() {
+	
+	public Comida[] getComidasAPedir() {
 		return comidasAPedir;
 	}
 

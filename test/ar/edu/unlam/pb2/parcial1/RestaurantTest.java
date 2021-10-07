@@ -120,7 +120,7 @@ public class RestaurantTest {
 
 		assertTrue(valorObtenido);
 	}
-/*	
+
 	@Test
 	public void queSePuedaAgregarBebidaAlPedido() {
 		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
@@ -137,6 +137,5 @@ public class RestaurantTest {
 
 		assertTrue(valorObtenido);
 	}
-	*/
 
 }
