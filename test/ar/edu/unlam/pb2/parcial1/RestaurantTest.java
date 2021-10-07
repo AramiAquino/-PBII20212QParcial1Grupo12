@@ -196,5 +196,13 @@ public class RestaurantTest {
 		assertEquals(valorEsperado, valorObtenido, 0.01);
 	}
 
+	@Test
+	public void queSePuedaContratarUnMozo() {
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
+		Mozo mozo = new Mozo("Alan", 123L, 1212, 0);
 
+		Boolean valorObtenido = restaurant.contratarUnMozo(mozo);
+
+		assertTrue(valorObtenido);
+	}
 }

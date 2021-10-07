@@ -122,8 +122,20 @@ public class Restaurant {
 
 	public Double calcularTotalDeuda(Pedido pedido) {
 		for (int i = 0; i < pedidos.length; i++) {
-			totalDeuda = (pedido.getBebida().getPrecio())+(pedido.getComida().getPrecio());
+			totalDeuda = (pedido.getBebida().getPrecio()) + (pedido.getComida().getPrecio());
 		}
 		return totalDeuda;
+	}
+
+	public Boolean contratarUnMozo(Mozo mozo) {
+		Boolean sePudoAgregar = false;
+		for (int i = 0; i < mozos.length; i++) {
+			if (mozos[i] == null) {
+				mozos[i] = mozo;
+				sePudoAgregar = true;
+				break;
+			}
+		}
+		return sePudoAgregar;
 	}
 }
