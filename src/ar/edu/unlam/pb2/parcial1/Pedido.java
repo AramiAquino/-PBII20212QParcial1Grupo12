@@ -15,8 +15,31 @@ public class Pedido {
 
 	}
 
+	public Boolean agregarComidaAlpedido(Comida comida) {
+		Boolean sePudoAgregar = false;
+		for (int i = 0; i < comidasAPedir.length; i++) {
+			if (comidasAPedir[i] == null) {
+				comidasAPedir[i] = comida;
+				sePudoAgregar = true;
+				break;
+			}
+		}
+		return sePudoAgregar;
+	}
+/*	
+	public Boolean agregarBebidaAlpedido(Bebida bebida) {
+		Boolean sePudoAgregar = false;
+		for (int i = 0; i < bebidasAPedir.length; i++) {
+			if (bebidasAPedir[i] == null) {
+				bebidasAPedir[i] = bebida;
+				sePudoAgregar = true;
+				break;
+			}
+		}
+		return sePudoAgregar;
+	}
 
-	public Comida[] getComidasAPedir() {
+*/	public Comida[] getComidasAPedir() {
 		return comidasAPedir;
 	}
 

@@ -105,5 +105,38 @@ public class RestaurantTest {
 
 		assertTrue(valorObtenido);
 	}
+	
+	
+	@Test
+	public void queSePuedaAgregarComidaAlPedido() {
+		Comida[] comidas = new Comida[10];
+		Bebida[] bebidas = new Bebida[5];
+		Comida comida = new Comida("Comida", 100.0);
+		Mozo mozo = new Mozo("Juan", 123456l, 123, 2);
+		Mesa mesa = new Mesa(01, 6);
+		Pedido pedido = new Pedido(comidas, bebidas, mozo, mesa);
+
+		Boolean valorObtenido = pedido.agregarComidaAlpedido(comida);
+
+		assertTrue(valorObtenido);
+	}
+/*	
+	@Test
+	public void queSePuedaAgregarBebidaAlPedido() {
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
+		Comida[] comidas = new Comida[10];
+		Bebida[] bebidas = new Bebida[5];
+		Comida comida = new Comida("Agua", 100.0);
+		Comida bebida2 = new Comida("Comida", 100.0);
+		Bebida bebida = new Bebida("Agua", 100.0);
+		Mozo mozo = new Mozo("Juan", 123456l, 123, 2);
+		Mesa mesa = new Mesa(01, 6);
+		Pedido pedido = new Pedido(comidas, bebidas, mozo, mesa);
+
+		Boolean valorObtenido = pedido.agregarBebidaAlpedido(bebida);
+
+		assertTrue(valorObtenido);
+	}
+	*/
 
 }
