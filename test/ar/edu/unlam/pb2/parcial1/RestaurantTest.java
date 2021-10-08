@@ -200,14 +200,15 @@ public class RestaurantTest {
 		assertEquals(valorEsperado, valorObtenido);
 
 	}
+
 	@Test
 	public void queSePuedaAgregarComensalesAUnaMesa() {
 		Mesa mesa = new Mesa(01, 6);
 		Comensal comensal = new Comensal("Lucia", 1234567l);
 		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
-		
-		Boolean valorObtenido =restaurant.agregarComensalAUnaMesa(mesa, comensal);
-		
+
+		Boolean valorObtenido = restaurant.agregarComensalAUnaMesa(mesa, comensal);
+
 		assertTrue(valorObtenido);
 	}
 	
@@ -231,9 +232,36 @@ public class RestaurantTest {
 		Comensal comensal2 = new Comensal("Maria", 1287677l);
 		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
 
-		restaurant.agregarComensalAUnaMesa(mesa, comensal);		
+		restaurant.agregarComensalAUnaMesa(mesa, comensal);
 		Boolean valorObtenido = restaurant.agregarComensalAUnaMesa(mesa, comensal2);
 		
 		assertFalse(valorObtenido);
+	}
+
+	@Test
+	public void queSePuedaAgregarVariosComensalesAUnaMesa() {
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
+		Comensal[] comensales = new Comensal[2];
+		comensales[0] = new Comensal("Lucia", 1234567l);
+		comensales[1] = new Comensal("Maria", 1287677l);
+		Mesa mesa = new Mesa(01, 6);
+		Boolean valorObtenido = restaurant.agregarComensalAUnaMesa(mesa, comensales);
+
+		assertTrue(valorObtenido);
+
+	}
+
+	@Test
+	public void queNoSePuedaAgregarVariosComensalesAUnaMesa() {
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
+		Comensal[] comensales = new Comensal[3];
+		comensales[0] = new Comensal("Lucia", 1234567l);
+		comensales[1] = new Comensal("Maria", 1287677l);
+		comensales[2] = new Comensal("Juan", 7878787l);
+		Mesa mesa = new Mesa(01, 2);
+		Boolean valorObtenido = restaurant.agregarComensalAUnaMesa(mesa, comensales);
+
+		assertFalse(valorObtenido);
+
 	}
 }
