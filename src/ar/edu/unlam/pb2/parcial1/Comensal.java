@@ -6,7 +6,6 @@ public class Comensal extends Persona {
 
 	public Comensal(String nombre, Long documento) {
 		super(nombre, documento);
-		this.mesa = mesa;
 	}
 
 	public Mesa getMesa() {
