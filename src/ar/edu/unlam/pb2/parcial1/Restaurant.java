@@ -215,4 +215,28 @@ public class Restaurant {
 
 		return sePudoAgregar;
 	}
+
+	public Boolean eliminarUnaComidaDelMenu(Comida comida) {
+		Boolean sePudoEliminar = false;
+		for (int i = 0; i < menuComidas.length; i++) {
+			if (menuComidas[i].getDescripcion().equals(comida.getDescripcion())) {
+				menuComidas[i] = null;
+				sePudoEliminar = true;
+				break;
+			}
+		}
+		return sePudoEliminar;
+	}
+
+	public Boolean eliminarUnaBebidaDelMenu(Bebida bebida) {
+		Boolean sePudoEliminar = false;
+		for (int i = 0; i < menuBebidas.length; i++) {
+			if (menuBebidas[i].getDescripcion().equals(bebida.getDescripcion())) {
+				menuBebidas[i] = null;
+				sePudoEliminar = true;
+				break;
+			}
+		}
+		return sePudoEliminar;
+	}
 }

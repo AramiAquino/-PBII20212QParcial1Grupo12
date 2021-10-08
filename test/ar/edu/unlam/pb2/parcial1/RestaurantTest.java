@@ -264,4 +264,26 @@ public class RestaurantTest {
 		assertFalse(valorObtenido);
 
 	}
+	
+	@Test
+	public void queSePuedaEliminarUnaComidaDelMenu() {
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
+		Comida comida = new Comida("Milanesa", 150.0);
+		restaurant.agregarUnaComidaAlMenu(comida);
+
+		Boolean valorObtenido = restaurant.eliminarUnaComidaDelMenu(comida);
+
+		assertTrue(valorObtenido);
+	}
+
+	@Test
+	public void queSePuedaEliminarUnaBebidaDelMenu() {
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
+		Bebida bebida = new Bebida("Agua", 100.0);
+		restaurant.agregarUnaBebidaAlMenu(bebida);
+
+		Boolean valorObtenido = restaurant.eliminarUnaBebidaDelMenu(bebida);
+
+		assertTrue(valorObtenido);
+	}
 }
