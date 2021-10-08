@@ -311,4 +311,26 @@ public class RestaurantTest {
 
 		assertTrue(valorObtenido);
 	}
+	
+	@Test
+	public void queSePuedaMostrarElMenuDeComidas() {
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
+		Comida comida = new Comida("Milanesa", 150.0);
+		restaurant.agregarUnaComidaAlMenu(comida);
+		
+		Comida[] valorObtenido = restaurant.getMenuComidas();
+
+		assertNotNull(valorObtenido);
+	}
+	
+	@Test
+	public void queSePuedaMostrarElMenuDeBebidas() {
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
+		Bebida bebida = new Bebida("Agua", 100.0);
+		restaurant.agregarUnaBebidaAlMenu(bebida);
+		
+		Bebida[] valorObtenido = restaurant.getMenuBebidas();
+
+		assertNotNull(valorObtenido);
+	}
 }
