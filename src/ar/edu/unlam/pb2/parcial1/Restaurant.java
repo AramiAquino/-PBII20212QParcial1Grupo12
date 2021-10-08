@@ -1,5 +1,7 @@
 package ar.edu.unlam.pb2.parcial1;
 
+import java.util.Iterator;
+
 public class Restaurant {
 
 	private String nombre;
@@ -82,7 +84,7 @@ public class Restaurant {
 		}
 		return sePudoAgregar;
 	}
-	
+
 	public Boolean agregarUnaMesa(Mesa mesa) {
 		Boolean sePudoAgregar = false;
 
@@ -93,6 +95,19 @@ public class Restaurant {
 				break;
 			}
 		}
+		return sePudoAgregar;
+	}
+/////////////////////////////////////////
+	private Boolean agregarUnComensal(Comensal comensal) {
+		Boolean sePudoAgregar = false;
+		for (int i = 0; i < comensales.length; i++) {
+			if (comensales[i] == null) {
+				comensales[i] = comensal;
+				sePudoAgregar = true;
+				break;
+			}
+		}
+
 		return sePudoAgregar;
 	}
 
@@ -179,42 +194,58 @@ public class Restaurant {
 		}
 		return sePudoAgregar;
 	}
-	
-	public Boolean agregarComensalAUnaMesa(Mesa mesa, Comensal comensal) {
+//////////////////////////////////////////
+	public Boolean agregarComensalAUnaMesa(Comensal comensal) {
 		Boolean sePudoAgregar = false;
-
-		if(mesa.getDisponible() == true) {
-			for (int i = 0; i < comensales.length; i++) {
-				if (comensales[i] == null) {
-					comensales[i] = comensal;
+		for (int i = 0; i < mesas.length; i++) {
+			if (mesas[i] != null && mesas[i].getDisponible()) {
+				if (agregarUnComensal(comensal)) {
 					sePudoAgregar = true;
-					mesa.setDisponible(false);
+					mesas[i].setDisponible(false);
 					break;
 				}
 			}
 		}
-		
 		return sePudoAgregar;
 	}
-	
+
 	public Boolean agregarComensalAUnaMesa(Mesa mesa, Comensal[] comensalesAAgregar) {
 		Boolean sePudoAgregar = false;
-
-		if(mesa.getDisponible() && comensalesAAgregar.length <= mesa.getCapacidad()) {
-			for (int i = 0, j = 0; i < comensales.length; i++) {
-				if(comensales[i] == null && comensalesAAgregar[j] != null) {
-					comensales[i] = comensalesAAgregar[j];
-					j++;
-					if(j == comensalesAAgregar.length) {
-						sePudoAgregar = true;
-						break;
+		for (int i = 0; i < mesas.length; i++) {
+			if (mesas[i] != null && mesas[i].getDisponible()) {
+				for (int j = 0; j < comensalesAAgregar.length; j++) {
+					if(comensales[j] != null) {
+						agregarUnComensal(comensalesAAgregar[j]);
 					}
 				}
+				sePudoAgregar = true;
+				mesas[i].setDisponible(false);
+				break;
 			}
 		}
-
 		return sePudoAgregar;
 	}
+
+	/*
+	 * public Boolean agregarComensalAUnaMesa(Mesa mesa, Comensal comensal) {
+	 * Boolean sePudoAgregar = false;
+	 *
+	 * if (mesa.getDisponible() == true) { for (int i = 0; i < comensales.length;
+	 * i++) { if (comensales[i] == null) { comensales[i] = comensal; sePudoAgregar =
+	 * true; mesa.setDisponible(false); break; } } }
+	 *
+	 * return sePudoAgregar; }
+	 *
+	 *
+	 * public Boolean modificarMesaDelArray(Mesa mesa) { Boolean sePudoModificar =
+	 * false;
+	 *
+	 * for (int i = 0; i < this.mesas.length; i++) { if(mesas[i]!= null &&
+	 * mesa.getNumero() == mesas[i].getNumero()) { mesas[i] = mesa; sePudoModificar
+	 * = true; break; } }
+	 *
+	 * return sePudoModificar; }
+	 */
 
 	public Boolean eliminarUnaComidaDelMenu(Comida comida) {
 		Boolean sePudoEliminar = false;
