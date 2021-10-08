@@ -218,11 +218,9 @@ public class Restaurant {
 						agregarUnComensal(comensalesAAgregar[j]);
 					}
 				}
-				if (agregarUnComensal(comensal)) {
-					sePudoAgregar = true;
-					mesas[i].setDisponible(false);
-					break;
-				}
+				sePudoAgregar = true;
+				mesas[i].setDisponible(false);
+				break;
 			}
 		}
 		return sePudoAgregar;
