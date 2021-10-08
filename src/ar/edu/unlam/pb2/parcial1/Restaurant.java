@@ -72,7 +72,7 @@ public class Restaurant {
 		this.menuBebidas = menuBebidas;
 	}
 
-	public Boolean agregarUnMozo(Mozo mozo) {
+	public Boolean contratarMozo(Mozo mozo) {
 		Boolean sePudoAgregar = false;
 
 		for (int i = 0; i < mozos.length; i++) {
@@ -264,6 +264,18 @@ public class Restaurant {
 		for (int i = 0; i < menuBebidas.length; i++) {
 			if (menuBebidas[i].getDescripcion().equals(bebida.getDescripcion())) {
 				menuBebidas[i] = null;
+				sePudoEliminar = true;
+				break;
+			}
+		}
+		return sePudoEliminar;
+	}
+
+	public Boolean despedirMozo(Mozo mozo) {
+		Boolean sePudoEliminar = false;
+		for (int i = 0; i < mozos.length; i++) {
+			if (mozos[i].getLegajo().equals(mozo.getLegajo())) {
+				mozos[i] = null;
 				sePudoEliminar = true;
 				break;
 			}

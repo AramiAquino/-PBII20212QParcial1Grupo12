@@ -290,4 +290,25 @@ public class RestaurantTest {
 
 		assertTrue(valorObtenido);
 	}
+	
+	@Test
+	public void queSePuedaContratarAUnMozo() {
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
+		Mozo mozo = new Mozo("Alan", 123L, 13, 0);
+
+		Boolean valorObtenido = restaurant.contratarMozo(mozo);
+
+		assertTrue(valorObtenido);
+	}
+	
+	@Test
+	public void queSePuedaDespedirAUnMozo() {
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
+		Mozo mozo = new Mozo("Alan", 123L, 13, 0);
+		restaurant.contratarMozo(mozo);
+
+		Boolean valorObtenido = restaurant.despedirMozo(mozo);
+
+		assertTrue(valorObtenido);
+	}
 }
