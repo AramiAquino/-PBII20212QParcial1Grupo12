@@ -43,7 +43,7 @@ public class Pedido {
 		return sePudoAgregar;
 	}
 	
-	public Boolean eliminarUnaComidaDelMenu(Comida comida) {
+	public Boolean eliminarUnaComidaDelPedido(Comida comida) {
 		Boolean sePudoEliminar = false;
 		for (int i = 0; i < comidasAPedir.length; i++) {
 			if (comidasAPedir[i].getDescripcion().equals(comida.getDescripcion())) {
