@@ -264,4 +264,17 @@ public class RestaurantTest {
 		
 		assertFalse(valorObtenido);
 	}
+	
+	@Test
+	public void queSePuedaAgregarVariosComensalesAUnaMesa() {
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
+		Comensal[] comensales = new Comensal[2];
+		comensales[0] = new Comensal("Lucia", 1234567l);
+		comensales[1] = new Comensal("Maria", 1287677l);
+		Mesa mesa = new Mesa(01, 6);
+		Boolean valorObtenido = restaurant.agregarComensalAUnaMesa(mesa, comensales);
+		
+		assertTrue(valorObtenido);
+		
+	}
 }
