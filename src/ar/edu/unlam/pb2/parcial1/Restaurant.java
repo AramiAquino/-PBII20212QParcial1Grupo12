@@ -200,7 +200,7 @@ public class Restaurant {
 	public Boolean agregarComensalAUnaMesa(Mesa mesa, Comensal[] comensalesAAgregar) {
 		Boolean sePudoAgregar = false;
 
-		if(mesa.getDisponible()) {
+		if(mesa.getDisponible() && comensalesAAgregar.length <= mesa.getCapacidad()) {
 			for (int i = 0, j = 0; i < comensales.length; i++) {
 				if(comensales[i] == null && comensalesAAgregar[j] != null) {
 					comensales[i] = comensalesAAgregar[j];
