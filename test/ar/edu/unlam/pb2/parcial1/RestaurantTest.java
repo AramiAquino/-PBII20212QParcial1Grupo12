@@ -333,4 +333,20 @@ public class RestaurantTest {
 
 		assertNotNull(valorObtenido);
 	}
+	
+	@Test
+	public void queSePuedaConocerCuantosPedidosTieneAsignadoElMozo() {
+		Restaurant restaurant = new Restaurant("Insertar nombre de restaurant");
+		Comida comida = new Comida("Comida", 100.0);
+		Bebida bebida = new Bebida("Comida", 100.0);
+		Mozo mozo = new Mozo("Juan", 123456l, 123, 0);
+		Mesa mesa = new Mesa(01, 6);
+		Pedido pedido = new Pedido(comida, bebida, mozo, mesa);
+		restaurant.agregarUnPedidoAPedidos(pedido);
+		Integer valorEsperado = 1;
+
+		Integer valorObtenido = mozo.getCantidadPedidos();
+
+		assertEquals(valorEsperado,valorObtenido);
+	}
 }

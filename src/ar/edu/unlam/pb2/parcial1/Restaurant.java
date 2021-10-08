@@ -155,6 +155,10 @@ public class Restaurant {
 		Boolean sePudoAgregar = false;
 		for (int i = 0; i < pedidos.length; i++) {
 			if (pedidos[i] == null) {
+				
+				Integer PedidosDelMozo = pedido.getMozo().getCantidadPedidos();
+				Integer PedidosDelMozoActual = PedidosDelMozo + 1;
+				pedido.getMozo().setCantidadPedidos(PedidosDelMozoActual);
 				pedidos[i] = pedido;
 				sePudoAgregar = true;
 				break;
