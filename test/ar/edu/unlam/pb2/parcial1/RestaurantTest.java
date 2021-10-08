@@ -267,7 +267,7 @@ public class RestaurantTest {
 		assertFalse(valorObtenido);
 	}*/
 
-	}
+	
 
 	@Test
 	public void queSePuedaEliminarUnaComidaDelMenu() {
