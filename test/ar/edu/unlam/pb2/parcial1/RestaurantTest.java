@@ -393,6 +393,6 @@ public class RestaurantTest {
 		Pedido pedido = new Pedido(comida, mozo, mesa);
 
 		assertNotNull(pedido);
-		assertNull(pedido.getComidasAPedir()[0]);
+		assertNull(pedido.getBebidasAPedir()[0]);
 	}
 }
