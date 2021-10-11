@@ -1,6 +1,5 @@
 package ar.edu.unlam.pb2.parcial1;
 
-
 public class Restaurant {
 
 	private String nombre;
@@ -170,7 +169,7 @@ public class Restaurant {
 		Double deuda = 0d;
 		for (int i = 0; i < pedidos.length; i++) {
 			if (pedidos[i] != null && pedidos[i].getMesa().getNumero() == nroMesa) {
-				
+
 				for (int j = 0; j < pedidos[i].getBebidasAPedir().length; j++) {
 					if (pedidos[i].getBebidasAPedir()[j] != null) {
 						deuda += pedidos[i].getBebidasAPedir()[j].getPrecio();
@@ -183,7 +182,7 @@ public class Restaurant {
 				}
 				break;
 			}
-			
+
 		}
 		return deuda;
 	}
@@ -191,7 +190,8 @@ public class Restaurant {
 	public Double calcularTotalDeudaTodasLasMesas() {
 		for (int i = 0; i < pedidos.length; i++) {
 			if (pedidos[i] != null) {
-				this.totalDeuda += pedidos[i].getBebida().getPrecio() + pedidos[i].getComida().getPrecio();
+				Integer numeroMesa = pedidos[i].getMesa().getNumero();
+				totalDeuda += calcularDeudaDeUnaMesa(numeroMesa);
 			}
 		}
 		return totalDeuda;
@@ -298,15 +298,15 @@ public class Restaurant {
 
 		return sePudoRecibir;
 	}
-	
+
 	public Boolean chequearQueLoPedidoEsteEnElMenu(Pedido pedido) {
 		Boolean estaEnElMenu = false;
 		Comida comidaPedida = pedido.getComida();
 		Bebida bebidaPedida = pedido.getBebida();
 		for (int i = 0; i < menuComidas.length; i++) {
-			if(menuComidas[i] != null && menuComidas[i].equals(comidaPedida)) {
+			if (menuComidas[i] != null && menuComidas[i].equals(comidaPedida)) {
 				for (int j = 0; j < menuBebidas.length; j++) {
-					if(menuBebidas[j] != null && menuBebidas[j].equals(bebidaPedida)) {
+					if (menuBebidas[j] != null && menuBebidas[j].equals(bebidaPedida)) {
 						estaEnElMenu = true;
 						break;
 					}
