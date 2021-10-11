@@ -66,6 +66,8 @@ public class Pedido {
 		}
 		return sePudoEliminar;
 	}
+	
+	
 
 
 	public Comida getComida() {

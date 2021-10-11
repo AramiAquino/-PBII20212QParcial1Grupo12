@@ -1,6 +1,5 @@
 package ar.edu.unlam.pb2.parcial1;
 
-import java.util.Iterator;
 
 public class Restaurant {
 
@@ -97,7 +96,7 @@ public class Restaurant {
 		}
 		return sePudoAgregar;
 	}
-/////////////////////////////////////////
+
 	private Boolean agregarUnComensal(Comensal comensal) {
 		Boolean sePudoAgregar = false;
 		for (int i = 0; i < comensales.length; i++) {
@@ -155,7 +154,7 @@ public class Restaurant {
 		Boolean sePudoAgregar = false;
 		for (int i = 0; i < pedidos.length; i++) {
 			if (pedidos[i] == null) {
-				
+
 				Integer PedidosDelMozo = pedido.getMozo().getCantidadPedidos();
 				Integer PedidosDelMozoActual = PedidosDelMozo + 1;
 				pedido.getMozo().setCantidadPedidos(PedidosDelMozoActual);
@@ -198,7 +197,7 @@ public class Restaurant {
 		}
 		return sePudoAgregar;
 	}
-//////////////////////////////////////////
+
 	public Boolean agregarComensalAUnaMesa(Comensal comensal) {
 		Boolean sePudoAgregar = false;
 		for (int i = 0; i < mesas.length; i++) {
@@ -218,7 +217,7 @@ public class Restaurant {
 		for (int i = 0; i < mesas.length; i++) {
 			if (mesas[i] != null && mesas[i].getDisponible()) {
 				for (int j = 0; j < comensalesAAgregar.length; j++) {
-					if(comensales[j] != null) {
+					if (comensales[j] != null) {
 						agregarUnComensal(comensalesAAgregar[j]);
 					}
 				}
@@ -229,27 +228,6 @@ public class Restaurant {
 		}
 		return sePudoAgregar;
 	}
-
-	/*
-	 * public Boolean agregarComensalAUnaMesa(Mesa mesa, Comensal comensal) {
-	 * Boolean sePudoAgregar = false;
-	 *
-	 * if (mesa.getDisponible() == true) { for (int i = 0; i < comensales.length;
-	 * i++) { if (comensales[i] == null) { comensales[i] = comensal; sePudoAgregar =
-	 * true; mesa.setDisponible(false); break; } } }
-	 *
-	 * return sePudoAgregar; }
-	 *
-	 *
-	 * public Boolean modificarMesaDelArray(Mesa mesa) { Boolean sePudoModificar =
-	 * false;
-	 *
-	 * for (int i = 0; i < this.mesas.length; i++) { if(mesas[i]!= null &&
-	 * mesa.getNumero() == mesas[i].getNumero()) { mesas[i] = mesa; sePudoModificar
-	 * = true; break; } }
-	 *
-	 * return sePudoModificar; }
-	 */
 
 	public Boolean eliminarUnaComidaDelMenu(Comida comida) {
 		Boolean sePudoEliminar = false;
@@ -285,5 +263,46 @@ public class Restaurant {
 			}
 		}
 		return sePudoEliminar;
+	}
+
+	public Integer getCantidadDeMesasDisponibles() {
+		Integer cantidadDeMesasDisponibles = 0;
+		for (int i = 0; i < mesas.length; i++) {
+			if (mesas[i] != null && mesas[i].getDisponible()) {
+				cantidadDeMesasDisponibles++;
+			}
+		}
+		return cantidadDeMesasDisponibles;
+	}
+
+	public Boolean recibirPagoDeUnaMesa(Integer nroMesa) {
+		Boolean sePudoRecibir = false;
+		for (int i = 0; i < mesas.length; i++) {
+			if (mesas[i] != null && mesas[i].getNumero() == nroMesa && mesas[i].getDisponible() == false) {
+				sePudoRecibir = true;
+				mesas[i].setDisponible(true);
+				break;
+			}
+		}
+
+		return sePudoRecibir;
+	}
+	
+	public Boolean chequearQueLoPedidoEsteEnElMenu(Pedido pedido) {
+		Boolean estaEnElMenu = false;
+		Comida comidaPedida = pedido.getComida();
+		Bebida bebidaPedida = pedido.getBebida();
+		for (int i = 0; i < menuComidas.length; i++) {
+			if(menuComidas[i] != null && menuComidas[i].equals(comidaPedida)) {
+				for (int j = 0; j < menuBebidas.length; j++) {
+					if(menuBebidas[j] != null && menuBebidas[j].equals(bebidaPedida)) {
+						estaEnElMenu = true;
+						break;
+					}
+				}
+				break;
+			}
+		}
+		return estaEnElMenu;
 	}
 }
