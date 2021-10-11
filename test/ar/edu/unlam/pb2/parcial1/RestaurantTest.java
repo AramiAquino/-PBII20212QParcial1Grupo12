@@ -371,4 +371,28 @@ public class RestaurantTest {
 		assertTrue(valorObtenido);
 		
 	}
+	
+	@Test
+	public void queSePuedaRealizarUnPedidoSoloDeBebidas() {
+		Bebida bebida = new Bebida("Bebida", 100.0);
+		Mozo mozo = new Mozo("Juan", 123456l, 123, 2);
+		Mesa mesa = new Mesa(01, 6);
+		
+		Pedido pedido = new Pedido(bebida, mozo, mesa);
+
+		assertNotNull(pedido);
+		assertNull(pedido.getComidasAPedir()[0]);
+	}
+	
+	@Test
+	public void queSePuedaRealizarUnPedidoSoloDeComidas() {
+		Comida comida = new Comida("Comida", 100.0);
+		Mozo mozo = new Mozo("Juan", 123456l, 123, 2);
+		Mesa mesa = new Mesa(01, 6);
+		
+		Pedido pedido = new Pedido(comida, mozo, mesa);
+
+		assertNotNull(pedido);
+		assertNull(pedido.getComidasAPedir()[0]);
+	}
 }

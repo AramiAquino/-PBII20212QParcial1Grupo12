@@ -9,14 +9,30 @@ public class Pedido {
 	private Mozo mozo;
 	private Mesa mesa;
 
-	public Pedido(Comida comidasAPedir, Bebida bebidasAPedir, Mozo mozo, Mesa mesa) {
-		this.comida = comidasAPedir;
-		this.bebida = bebidasAPedir;
-		this.mozo = mozo;
-		this.mesa = mesa;
+	public Pedido(Comida comida1, Bebida bebida1, Mozo mozo1, Mesa mesa1) {
+		this.comida = comida1;
+		this.bebida = bebida1;
+		this.mozo = mozo1;
+		this.mesa = mesa1;
 		this.comidasAPedir = new Comida[100];
 		this.bebidasAPedir = new Bebida[100];
 
+	}
+
+	public Pedido(Bebida bebida2, Mozo mozo2, Mesa mesa2) {
+		this.bebida = bebida2;
+		this.mozo = mozo2;
+		this.mesa = mesa2;
+		this.comidasAPedir = new Comida[100];
+		this.bebidasAPedir = new Bebida[100];
+	}
+
+	public Pedido(Comida comida3, Mozo mozo3, Mesa mesa3) {
+		this.comida = comida3;
+		this.mozo = mozo3;
+		this.mesa = mesa3;
+		this.comidasAPedir = new Comida[100];
+		this.bebidasAPedir = new Bebida[100];
 	}
 
 	public Boolean agregarComidaAlpedido(Comida comida) {
