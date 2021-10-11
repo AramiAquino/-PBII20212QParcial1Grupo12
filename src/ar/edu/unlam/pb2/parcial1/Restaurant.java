@@ -170,9 +170,20 @@ public class Restaurant {
 		Double deuda = 0d;
 		for (int i = 0; i < pedidos.length; i++) {
 			if (pedidos[i] != null && pedidos[i].getMesa().getNumero() == nroMesa) {
-				deuda = pedidos[i].getBebida().getPrecio() + pedidos[i].getComida().getPrecio();
+				
+				for (int j = 0; j < pedidos[i].getBebidasAPedir().length; j++) {
+					if (pedidos[i].getBebidasAPedir()[j] != null) {
+						deuda += pedidos[i].getBebidasAPedir()[j].getPrecio();
+					}
+				}
+				for (int k = 0; k < pedidos[i].getComidasAPedir().length; k++) {
+					if (pedidos[i].getComidasAPedir()[k] != null) {
+						deuda += pedidos[i].getComidasAPedir()[k].getPrecio();
+					}
+				}
 				break;
 			}
+			
 		}
 		return deuda;
 	}
